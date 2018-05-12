@@ -11,9 +11,9 @@ A definição deste projeto consiste em construir um método de multiclassifica�
 A imagem é a primeira impressão que uma pessoa tem ao ver alguém, é algo que nosso cérebro faz automaticamente para armazenar informações e é realizado a partir do momento em que começamos a interagir com esta pessoa. Uma imagem diferente do que uma pessoa é durante uma conversa causa um "ruído" na comunicação e uma confusão no nosso cérebro.
 
 Hoje a imagem é uma via de comunicação pessoal tão importante quanto a fala, dessa forma surgiu a necessidade de profissionais que ensinam a arte da comunicação não-verbal, através de métodos e análises que permitem ensinar uma pessoa a se conhecer e, assim, expressar melhor seu estilo e personalidade através de sua imagem. O processo de [consultoria de imagem](https://en.wikipedia.org/wiki/Image_consulting) ensina a pessoa a identificar seu estilo e sua personalidade, e após este passo, trabalhar com o objetivo de construir uma imagem pessoal mais positiva e coerente com ela mesma.
-A consultoria de imagem trabalha em sua grande parte com roupas, logo há algumas etapas do processo consultivo que visam limpar, organizar e classificar as roupas da cliente.
+A consultoria de imagem trabalha em sua grande parte com roupas, portanto há algumas etapas do processo consultivo que visam limpar, organizar e classificar as roupas da cliente.
 
-#### Por que a consultoria de imagem é importante
+#### Por que a consultoria de imagem é importante?
 
 A imagem, o estilo e as vestimentas são fatores que regem ou influenciam vários aspectos da vida de uma pessoa, o que torna esta informação muito valiosa e digna de vários estudos como os descritos abaixo:
 
@@ -25,15 +25,13 @@ A imagem, o estilo e as vestimentas são fatores que regem ou influenciam vário
 
 #### Proposta
 
-Este projeto demonstra a tentativa de montar um serviço de classificação de roupas, através da utilização de tecnologia e inteligência artificial para ajudar as pessoas a conhecerem suas roupas, pois saber o que se veste é uma excelente forma de adquirir auto conhecimento. Automatizar a classificação de roupas também seria uma forma de melhorar o trabalho de [consultoria de imagem](https://en.wikipedia.org/wiki/Image_consulting), possibilitando a geração de informações gerenciais de roupas, facilitando o processo de decisão destes profissionais durante a consultoria de um cliente.
+Este projeto demonstra a tentativa de montar um serviço de classificação de roupas, através da utilização de tecnologia e inteligência artificial para ajudar as pessoas a conhecerem suas roupas, pois saber o que se veste é uma excelente forma de adquirir auto conhecimento. Automatizar a classificação de roupas também é uma forma de melhorar o trabalho de [consultoria de imagem](https://en.wikipedia.org/wiki/Image_consulting), possibilitando a geração de informações gerenciais de roupas para facilitar o processo de decisão destes profissionais durante a consultoria de um cliente.
 
-[!arquitetura de programa de aprendizado de máquina](colocar aqui imagem de entrada de dados e saída de solução)
-
-Para ensinar as redes neurais a classificarem roupas, foram encontrados na internet alguns conjuntos de imagens que são excelentes candidatos para a solução do problema, os mesmos serão discutidos em detalhes posteriormente.
+Para desenvolver a solução de classificação, foram encontrados na internet alguns conjuntos de imagens que são excelentes candidatos para a solução do problema, os mesmos serão discutidos em detalhes posteriormente.
 
 ### Descrição do problema
 
-O problema a ser resolvido se define em como ter uma visão estratégica do armário de uma mulher. Apenas olhando para o armário, por mais organizado que esteja, não é possível responder perguntas como:
+O problema a ser resolvido se define em obter uma visão estratégica do armário de uma mulher. Apenas olhando para o armário, por mais organizado que esteja, não é possível responder perguntas como:
 
 * Quantas blusas pretas eu tenho?
 * Quais são as peças essenciais que faltam no armário?
@@ -52,12 +50,26 @@ Para responder tais perguntas, é necessário classificar as roupas entre vário
 9. Vestidos/Macacões/Macaquinhos
 10. Roupas de Academia
 
+Apesar das categorias acima abrangerem de forma pragmática o domínio das roupas, é necessário uma classificação mais específica, pois várias roupas possuem subdomínios, que podem alterar totalmente a imagem que uma pessoa quer comunicar, como também casos que a roupa utilizada pode ferir as regras de etiqueta de um ambiente determinado, e estes aspectos são importantes durante a avaliação de um guarda-roupas.
 
+Como exemplo temos a blusinha e o blazer, ambos são de um mesmo grupo de roupas, porém com projeções de imagens diferentes, e a blusa também pode não ser adequada para certos ambientes de trabalho.
 
-Nesta seção, você irá definir o problema que você está tentando resolver de forma clara, incluindo a estratégia (resumo das tarefas) que você irá utilizar para alcançar a solução desejada. Você deverá também discutir detalhadamente qual será a solução pretendida para este problema. Questões para se perguntar ao escrever esta seção:
-- _A enunciação do problema foi claramente definida? O leitor irá entender o que você está esperando resolver?_
-- _Você discutiu detalhadamente como irá tentar resolver o problema?_
-- _A solução antecipada está claramente definida? O leitor entenderá quais resultados você está procurando?_
+![blazer](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/blazer.jpg) ![blusa](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/blusa.jpg)
+
+Para solucionar o problema, será criado uma interface web onde um usuário consiga classificar uma roupa através de uma imagem, e para atingir esta solução, as etapas de construção da solução são:
+
+#### 1. Interface
+  Construir uma aplicação web em [Flask](http://flask.pocoo.org/), que terá uma interface para upload de fotos. A aplicação será a mais simples possível, pois não é o foco deste projeto.
+#### 2. Transporte de dados
+  A foto que foi escolhida para a análise não será analisada no dispositivo cliente, logo é necessário realizar o transporte dos dados para o servidor de análise. Este transporte será realizado através de uma requisição http.
+#### 3. Recepção dos dados
+  Para receber os dados através da requisição, será construído um simples servidor RESTful, o servidor irá fazer o papel de receber os arquivos e realizar as operações básicas de controle de sessão e chamada do algoritmo de classificação.
+#### 4. Pré processamento dos dados
+  Para realizar a classificação de um look, serão necessárias transformações na imagem de entrada, que consistem de recortes e reescalações
+#### 5. Análise dos dados
+  Aplicar para cada requisição a CNN de classificação, e retornar o resultado para a aplicação cliente.
+#### 6. Resultado final
+  Após a aplicação cliente receber o resultado na análise, será mostrado para o usuário a resposta da classificação realizada.
 
 ### Métricas
 
@@ -70,89 +82,212 @@ O processo de validação das métricas será dividido nas etapas abaixo:
 * Treinamento e validação dos modelos
 * Comparação da acurácia entre os modelos
 
-
-
 ## II. Análise
-_(aprox. 2-4 páginas)_
 
 ### Exploração dos dados
-Nesta seção, é esperado que você analise os dados que você está usando para o problema. Esses dados podem ser tanto na forma de um conjunto de dados (ou conjuntos de dados), dados de entrada (ou arquivos de entrada), ou até um ambiente. O tipo de dados deve ser descrito detalhadamente e, se possível, ter estatísticas e informações básicas apresentadas (tais como discussão dos atributos de entrada ou definição de características das entradas ou do ambiente) Qualquer anormalidade ou qualidade interessante dos dados que possam precisar ser devidamente tratadas devem ser identificadas (tais como características que precisem ser transformadas ou a possibilidade de valores atípicos) Questões para se perguntar ao escrever esta seção:
-- _Se exite um conjunto de dados para o problema em questão, você discutiu totalmente as características desse conjunto? Uma amostra dos dados foi oferecida ao leitor?_
-- _Se existe um conjunto de dados para o problema, as estatísticas sobre eles foram calculadas e reportadas? Foram discutidos quaisquer resultados relevantes desses cálculos?_
-- _Se **não** existe um conjunto de dados para o problema, foi realizada uma discussão sobre o espaço de entrada ou os dados de entrada do problema?_
-- _Existem anormalidades ou características acerca do espaço de entrada ou conjunto de dados que necessitem ser direcionados? (variáveis categóricas, valores faltando, valores atípicos, etc.)_
 
-### Visualização exploratória
-Nesta seção, você precisará fornecer alguma forma de visualização que sintetize ou evidencie uma característica ou atributo relevante sobre os dados. A visualização deve sustentar adequadamente os dados utilizados. Discuta por que essa visualização foi escolhida e por que é relevante. Questões para se perguntar ao escrever esta seção:
-- _Você visualizou uma característica ou um atributo relevante acerca do conjunto de dados ou dados de entrada?_
-- _A visualização foi completamente analisada e discutida?_
-- _Se um gráfico foi fornecido, os eixos, títulos e dados foram claramente definidos?_
+Para a construção da solução foram avaliados 2 conjuntos de dados, e durante o desenvolvimento da solução, um terceiro conjunto de dados foi encontrado, os três estão detalhados abaixo:
+
+### [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist)
+
+![Fashion MNIST_demo](https://github.com/leandrohmvieira/Machine-Learning-NanoDegree/blob/master/capstone_proposal/images/FMNIST.jpeg)
+
+  O Fashion MNIST é um conjunto de dados criado pela [Zalando Research](https://research.zalando.com/), que contém **60 mil imagens** de roupas no conjunto de treino e outras 10 mil no conjunto de teste. Este conjunto de dados tem como objetivo principal substituir o [MNIST](http://yann.lecun.com/exdb/mnist/), pois o mesmo é um conjunto que [não condiz com a realidade dos problemas de Deep Learning](https://twitter.com/fchollet/status/852592598128615424)
+
+### [Apparel classification with Style](http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html)
+
+![ACS_demo](https://github.com/leandrohmvieira/Machine-Learning-NanoDegree/blob/master/capstone_proposal/images/ACS%20Classification.png)
+
+  O Apparel Classification Set contém **80 mil imagens coloridas** retiradas da web através de crawlers e já classificadas em 15 grupos diferentes de categorias de roupa. Os dados deste conjunto são mais semelhantes com a realidade da aplicação final, pois mostram as roupas vestidas em pessoas em lugares naturais, porém contém uma série de ruídos nos dados, como fotos de caixas e fotos com zoom demais.
+
+![acs1](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/acs1.jpg) ![acs2](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/acs2.jpg)
+
+### [Deep Fashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html)
+
+![deep_fashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/intro.jpg)
+
+   O Deep Fashion foi encontrado durante o desenvolvimento da solução, e devido a sua qualidade, foi escolhido como conjunto de dados definitivo para o treinamento das redes neurais que seriam construídas. O Deep Fashion contém toda a informação necessária para a construção de redes neurais que envolvam roupas. O conjunto de dados possui **200 mil imagens para treinamento, e 40 mil imagens para validação e teste** totalizando um total de **280 mil imagens**, divididos em 50 categorias diferentes de roupas.
+
+   Outro ponto a ser destacado em relação ao ACS Dataset, é que apesar de ser um conjunto de dados muito maior, o Deep Fashion ainda se apresentou como um conjunto de dados com menos ruído, com raras ocorrências de fotos que fugiam do domínio ou com representações exdrúxulas.
+
+
+![deep1](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep1.jpg)
+![deep2](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep2.jpg)
+![deep3](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep3.jpg)
+![deep4](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep4.jpg)
 
 ### Algoritmos e técnicas
 
-Para realizar a classificação das roupas, serão implementada uma **rede neural**. Redes neurais são conhecidas por atingir o _"estado da arte"_ onde o domínio do problema se referem a imagens, assim ,como primeira opção, foram construídas e treinadas duas **redes neurais convolucionais** para a classificação das imagens.
+Para realizar a classificação das roupas, serão implementadas **redes neurais**. Redes neurais são conhecidas por atingir o _"estado da arte"_ onde o domínio do problema se referem a imagens, assim ,como primeira opção, foram construídas e treinadas duas **redes neurais convolucionais** para a classificação das imagens.
 
 **Deep Learning** é uma técnica específica de aprendizado de máquina, ou seja, o programa deve "aprender" a solução por si, pois ela não será programada explicitamente. Para isso, o programa utiliza dados de entrada para realizar seu aprendizado, utilizando eles para _"treinar"_.
 
-Nesta seção, você deverá discutir os algoritmos e técnicas que você pretende utilizar para solucionar o problema. Você deverá justificar o uso de cada algoritmo ou técnica baseado nas características do problema e domínio do problema. Questões para se perguntar ao escrever esta seção:
-- _Os algoritmos que serão utilizados, incluindo quaisquer variáveis/parâmetros padrão do projeto, foram claramente definidos?_
-- _As técnicas a serem usadas foram adequadamente discutidas e justificadas?_
-- _Ficou claro como os dados de entrada ou conjuntos de dados serão controlados pelos algoritmos e técnicas escolhidas?_
+![ml](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/ml.png)
+
+E por fim, dentro das redes neurais temos outros subtipos, sendo os mais conhecidos MLPs e CNNs. Para esta solução, as CNNs são a melhor abordagem para o problema, pois suas camadas convolutivas deixam a rede melhor preparada para lidar com imagens que tem seu objeto de interesse transladado ou rotacionado.
+
+![CNN](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/CNN.jpg)
+
+#### Mas porque duas CNNs?
+
+Enquanto um uma das redes criarei um modelo sequencial comum, do zero, na outra CNN será aplicado o conceito de Transfer learning, que consiste de instanciar uma rede neural já treinada(geralmente treinada com dados do ImageNet) e adequá-la para o seu problema, realizando alguns ajustes e um treinamento adicional.
+
+![TL](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/transfer learning.jpg)
 
 ### Benchmark
-Nesta  seção, você deverá definir claramente um resultado de referência (benchmark) ou limiar para comparar entre desempenhos obtidos pela sua solução. O raciocínio por trás da referência (no caso onde não é estabelecido um resultado) deve ser discutido. Questões para se perguntar ao escrever esta seção:
-- _Algum resultado ou valor que funcione como referência para a medida de desempenho foi fornecido?_
-- _Ficou claro como esse resultado ou valor foi obtido (seja por dados ou por hipóteses)?_
 
+Como o modelo de benchmark, será utilizada uma CNN extremamente simples, construída do zero, no Keras. A rede consistirá de 13 camadas, representadas abaixo:
+
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 300, 200, 16)      304       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 150, 100, 16)      0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 150, 100, 32)      3104      
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 75, 50, 32)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 75, 50, 64)        12352     
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 37, 25, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 37, 25, 64)        0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 59200)             0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 500)               29600500  
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 500)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 500)               250500    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 500)               0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 50)                25050     
+=================================================================
+Total params: 29,891,810
+Trainable params: 29,891,810
+Non-trainable params: 0
+_________________________________________________________________
+```
+Todos os detalhes da implementação do modelo de benchmark estão localizados [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Basic-CNN.ipynb)
 
 ## III. Metodologia
 
-A metodologia aplicada para a solução do problema são redes neurais
-
 ### Pré-processamento de dados
-Nesta seção, você deve documentar claramente todos os passos de pré-processamento que você pretende fazer, caso algum seja necessário. A partir da seção anterior, quaisquer anormalidades ou características que você identificou no conjunto de dados deverão ser adequadamente direcionadas e tratadas aqui. Questões para se perguntar ao escrever esta seção:
-- _Se os algoritmos escolhidos requerem passos de pré-processamento, como seleção ou transformações de atributos, tais passos foram adequadamente documentados?_
-- _Baseado na seção de **Exploração de dados**, se existiram anormalidade ou características que precisem ser tratadas, elas foram adequadamente corrigidas?_
-- _Se não é necessário um pré-processamento, foi bem definido o porquê?_
+
+Durante o pré processamento dos dados, foram realizadas algumas operações para habilitar o treinamento da rede neural.
+
+* As imagens vieram todas juntas, assim foi necessário separar as imagens em diretórios diferentes, baseado nas informações contidas no arquivo **list_eval_partition.txt**.
+
+* As imagens não possuiam a mesma resolução, e ao construir uma rede neural, é necessário definir um tamanho de entrada fixo para as imagens. Para contornar este problema, todas as imagens foram transformadas para a resolução de 300px de altura por 200px de largura. Esta medida foi escolhida pois é a que menos deforma as imagens, já que a maioria das imagens são fotos em formato de retrato, e também é constatado na documentação do dataset que a maior parte das fotos foi mantida com 300px em sua parte maior. _"The long side of images are resized to 300"_.
+
+* Foi realizada a reescalação dos pixels, realizando a mudança da amplitude numérica deles de (0,255) para (0,1). Esta atitude foi tomada principalmente pelas seguintes razões: Economia de memória, eficiência de processo e um tratamento mais "justo" entre as imagens do treinamento.
+
+Para realizar estas operações de Pré-processamento, foi criado uma célula com código customizado para separar as imagens entre os diretórios de treino, validação e teste. Porém para as outras transformações, foi utilizada funções pré definidas do Keras, o que facilitou bastante o trabalho, exemplo abaixo:
+
+```
+# Reescalação dos pixels
+from keras.preprocessing.image import ImageDataGenerator
+train_datagen = ImageDataGenerator(rescale=1./255)
+
+# Transformação da resolução das imagens para o tamanho (300,200)
+tgt_size = (300,200)
+train_generator = train_datagen.flow_from_directory(
+    '/content/train/',
+    target_size= tgt_size,
+    batch_size= bat_size,
+    class_mode='categorical'
+)
+```
+**Este pré-processamento foi realizado para ambas as redes**.
+
 
 ### Implementação
-Nesta seção, o processo de escolha de quais métricas, algoritmos e técnicas deveriam ser implementados para os dados apresentados deve estar claramente documentado. Deve estar bastante claro como a implementação foi feita, e uma discussão deve ser elaborada a respeito de quaisquer complicações ocorridas durante o processo.  Questões para se perguntar ao escrever esta seção:
-- _Ficou claro como os algoritmos e técnicas foram implementados com os conjuntos de dados e os dados de entrada apresentados?_
-- _Houve complicações com as métricas ou técnicas originais que acabaram exigindo mudanças antes de chegar à solução?_
-- _Houve qualquer parte do processo de codificação (escrita de funções complicadas, por exemplo) que deveriam ser documentadas?_
+
+Para a implementação das redes foram realizadas duas construções, feitas em Keras. Uma rede neural simples de 13 camadas(detalhes [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Basic-CNN.ipynb)) e uma rede de transfer learning, baseado na VGG19(detalhes [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/VGG19.ipynb)).
+
+Estas implementações foram escolhidas pelos seguintes motivos:
+
+A CNN simples é um modelo que já havia sido discutido durante as aulas do módulo, e assim apresentava a familiaridade e simplicidade necessária para um modelo de benchmark.
+
+A VGG19 foi selecionada por um semi acaso, apenas ponderei que não queria utilizar um modelo complexo demais(como a resnet50, por exemplo), que iria gerar em tempos mais lentos de treinamento, assim peguei o **meio termo** entre os modelos oferecidos pelo keras.
+
+# VGG19 detalhes
+
+A implementação da VGG19 foi realizada a partir de transfer learning. Para realizar essa técnica, importamos uma rede neural já construída, juntos com seus pesos adquiridos de semanas de treinamento com os dados do banco de imagens ImageNet. Como o ImageNet não é o dominio do nosso problema, a rede neural está preparada para executar classificações de outros objetos, como animais e coisas.
+
+Para convergir uma rede neural pronta para o dominio do sue problema, é necessário remover a última camada da rede neural importada e substituir por uma camada que contém o dominio do seu problema, a nova camada de dominio geralmente vem acompanhada com outras hidden layers, para fortalecer os resultados através de treinamento.
+
+No Keras a implementação de transfer learning foi facilmente realizada, o Keras já permite que se importe a rede neural sem sua ultima camada, através do comando abaixo:
+
+`model = VGG19(weights = "imagenet", include_top=False, input_shape = (300, 200, 3))`
+
+Após a importação, foi necessário apenas criar as camadas finais do modelo e "plugar" elas no final da rede neural, esta atividade foi providenciada pelo código abaixo:
+
+```
+from keras.models import Sequential, Model
+from keras.layers import Flatten, Dense, Dropout
+x = model.output
+x = Flatten()(x)
+x = Dense(1024, activation="relu")(x)
+x = Dropout(0.5)(x)
+x = Dense(1024, activation="relu")(x)
+predictions = Dense(50, activation="softmax")(x)
+model_final = Model(input = model.input, output = predictions)
+```
 
 ### Refinamento
-Nesta seção, você deverá discutir o processo de aperfeiçoamento dos algoritmos e técnicas usados em sua implementação. Por exemplo, ajuste de parâmetros para que certos modelos obtenham melhores soluções está dentro da categoria de refinamento. Suas soluções inicial e final devem ser registradas, bem como quaisquer outros resultados intermediários significativos, conforme o necessário. Questões para se perguntar ao escrever esta seção:
-- _Uma solução inicial foi encontrada e claramente reportada?_
-- _O processo de melhoria foi documentado de foma clara, bem como as técnicas utilizadas?_
-- _As soluções intermediárias e finais foram reportadas claramente, conforme o processo foi sendo melhorado?_
 
+Após a arquitetura de ambas redes neurais, se deu inicio a etapa de aprendizado a partir dos dados, para os modelos implementados, foram testados os seguintes parâmetros:
+
+* CNN básica:
+  * função de perda='categorical_crossentropy', otimizador='adam', métrica=['accuracy'], 3 epochs
+  * função de perda='categorical_crossentropy', otimizador='rmsprop', métrica=['accuracy'], 3 epochs
+
+* VGG19:
+  * função de perda='categorical_crossentropy', otimizador=SGD(lr=0.0001, momentum=0.9), métrica=['accuracy'], 1 epoch
+  * função de perda='categorical_crossentropy', otimizador='adam', métrica=['accuracy'], 1 epoch
 
 ## IV. Resultados
-_(aprox. 2-3 páginas)_
+
+Os resultados as execuções contrariaram minhas expectativas, imaginava que a VGG19 teria um resultado superior comparado à CNN simples, mas os resultados mostram uma alta discrepância entre suas acurácias.
+Durante a construção e treinamento dos modelos, 4 modelos foram treinados utilizando os dados do Deep Fashion e obtivemos os seguintes resultados:
+
+* CNN básica:
+  * Adam, 3 epochs: 48,7% de acurácia no conjunto de dados de teste
+  * Rmsprop, 3 epochs:51,2% de acurácia no conjunto de dados de teste
+
+* VGG19:
+  * SGD(lr=0.0001, momentum=0.9), 1 epoch: 12,75% de acurácia no conjunto de dados de teste
+  * Adam', 1 epoch: 12,65% de acurácia no conjunto de dados de teste
+
 
 ### Modelo de avaliação e validação
-Nesta seção, o modelo final e quaisquer qualidades que o sustentem devem ser avaliadas em detalhe. Deve ficar claro como o modelo final foi obtido e por que tal modelo foi escolhido. Além disso, algum tipo de análise deve ser realizada para validar a robustez do modelo e sua solução, como, por exemplo, manipular os dados de entrada ou o ambiente para ver como a solução do modelo é afetada (técnica chamada de análise sensitiva). Questões para se perguntar ao escrever esta seção:
-- _O modelo final é razoável e alinhado com as expectativas de solução? Os parâmetros finais do modelo são apropriados?_
-- _O modelo final foi testado com várias entradas para avaliar se o modelo generaliza bem com dados não vistos?_
--_O modelo é robusto o suficiente para o problema? Pequenas perturbações (mudanças) nos dados de treinamento ou no espaço de entrada afetam os resultados de forma considerável?_
-- _Os resultados obtidos do modelo são confiáveis?_
+
+Após os modelos validados, o modelo CNN simples com o otimizador rmsprop foi selecionado entre os quatro candidatos, devido a sua maior acurácia.
+
+A acurácia de 51,2% ainda é considerada muito baixa, logo o melhor modelo ainda não possui a robustez necessária para um amabiente de produção.
+
+O modelo também foi testado com algumas fotos caseiras e tambem não houve um resultado satisfatório.
 
 ### Justificativa
-Nesta seção, a solução final do seu modelo e os resultados dela obtidos devem ser comparados aos valores de referência (benchmark) que você estabeleceu anteriormente no projeto, usando algum tipo de análise estatística. Você deverá também justificar se esses resultados e a solução são significativas o suficiente para ter resolvido o problema apresentado no projeto. Questões para se perguntar ao escrever esta seção:
-- _Os resultados finais encontrados são mais fortes do que a referência reportada anteriormente?_
-- _Você analisou e discutiu totalmente a solução final?_
-- _A solução final é significativa o suficiente para ter resolvido o problema?_
+
+Como justificativa para o resultado, tenho em mente que ambos os modelos não foram treinados o suficiente para generalizar os dados de maneira correta, suspeito que ambos se encontram em um estado de **Underfitting**, necessitando de mais treinamento.
+
+O modelo de transfer learning, comparado ao modelo de benchmark, está muito pior nos resultados apresentados no conjunto de dados de teste.
+
+Para a solução final, foi enviado o modelo CNN simples, mesmo que não tenha adquirido uma acurácia satisfatória.
 
 
 ## V. Conclusão
-_(aprox. 1-2 páginas)_
 
-### Foma livre de visualização
-Nesta seção, você deverá fornecer alguma forma de visualização que enfatize uma qualidade importante do projeto. A visualização é de forma livre, mas deve sustentar de forma razoável um resultado ou característica relevante sobre o problema que você quer discutir. Questões para se perguntar ao escrever esta seção:
-- _Você visualizou uma qualidade importante ou relevante acerca do problema, conjunto de dados, dados de entrada, ou resultados?_
-- _A visualização foi completamente analisada e discutida?_
-- _Se um gráfico foi fornecido, os eixos, títulos e dados foram claramente definidos?_
+Como conclusão, temos 3 artefatos entregues, duas redes neurais e um servidor web para interface como o usuário.
+
+Ainda permanece confuso para mim qual seria a causa da discrepância entre os resultados das duas redes neurais. Tenho a teoria que, como a VGG19 é uma rede neural muito mais complexa do que a utilizada no benchmark, ela deve necessitar de mais tempo de treinamento, logo com a execução de mais _epochs_, ela culminaria em um modelo com acurácia semelhante ou maior ao modelo de benchmark.
 
 ### Reflexão
 
@@ -183,15 +318,3 @@ Outro ponto a ser melhorado no projeto consiste na utilização do serviço de u
 * Um ponto que seria de grande melhora, seria o enquadramento do objeto antes da classificação. Encontrei algumas fontes na internet como o [Detectron](https://github.com/facebookresearch/Detectron) e o [YOLO](https://github.com/zhreshold/mxnet-yolo) que conseguem detectar objetos em uma imagem com várias coisas, isso permitiria cortar a foto antes da classificação, assim teríamos menos ruído durante a classificação das roupas.
 
 * E por fim, seria uma melhora a multiclassificação de uma imagem, onde fosse possível classificar várias roupas simultâneamente, dado uma foto. Realizei algumas pesquisas na internet e vi que isso é possível, porém o material dado pelo curso não abrange este tópico.
-
------------
-
-**Antes de enviar, pergunte-se. . .**
-
-- _O relatório de projeto que você escreveu segue uma estrutura bem organizada, similar ao modelo do projeto?_
-- Cada seção (particularmente **Análise** e **Metodologia**) foi escrita de maneira clara, concisa e específica? Existe algum termo ou frase ambígua que precise de esclarecimento?
-- O público-alvo do seu projeto será capaz de entender suas análises, métodos e resultados?
-- Você revisou seu relatório de projeto adequadamente, de forma a minimizar a quantidade de erros gramaticais e ortográficos?
-- Todos os recursos usados neste projeto foram corretamente citados e referenciados?
-- O código que implementa sua solução está legível e comentado adequadamente?
-- O código é executado sem erros e produz resultados similares àqueles reportados?
