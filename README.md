@@ -132,7 +132,7 @@ E por fim, dentro das redes neurais temos outros subtipos, sendo os mais conheci
 
 Enquanto um uma das redes criarei um modelo sequencial comum, do zero, na outra CNN será aplicado o conceito de Transfer learning, que consiste de instanciar uma rede neural já treinada(geralmente treinada com dados do ImageNet) e adequá-la para o seu problema, realizando alguns ajustes e um treinamento adicional.
 
-![TL](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/transfer learning.jpg)
+![TL](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/transfer_learning.jpg)
 
 ### Benchmark
 
