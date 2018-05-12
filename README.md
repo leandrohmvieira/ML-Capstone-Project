@@ -216,7 +216,7 @@ A CNN simples é um modelo que já havia sido discutido durante as aulas do mód
 
 A VGG19 foi selecionada por um semi acaso, apenas ponderei que não queria utilizar um modelo complexo demais(como a resnet50, por exemplo), que iria gerar em tempos mais lentos de treinamento, assim peguei o **meio termo** entre os modelos oferecidos pelo keras.
 
-# VGG19 detalhes
+### VGG19 detalhes
 
 A implementação da VGG19 foi realizada a partir de transfer learning. Para realizar essa técnica, importamos uma rede neural já construída, juntos com seus pesos adquiridos de semanas de treinamento com os dados do banco de imagens ImageNet. Como o ImageNet não é o dominio do nosso problema, a rede neural está preparada para executar classificações de outros objetos, como animais e coisas.
 
