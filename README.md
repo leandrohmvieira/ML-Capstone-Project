@@ -54,7 +54,7 @@ Apesar das categorias acima abrangerem de forma pragmática o domínio das roupa
 
 Como exemplo temos a blusinha e o blazer, ambos são de um mesmo grupo de roupas, porém com projeções de imagens diferentes, e a blusa também pode não ser adequada para certos ambientes de trabalho.
 
-![blazer](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/blazer.jpg) ![blusa](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/blusa.jpg)
+![blazer](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/blazer.jpg) ![blusa](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/blusa.jpg)
 
 Para solucionar o problema, será criado uma interface web onde um usuário consiga classificar uma roupa através de uma imagem, e para atingir esta solução, as etapas de construção da solução são:
 
@@ -100,7 +100,7 @@ Para a construção da solução foram avaliados 2 conjuntos de dados, e durante
 
   O Apparel Classification Set contém **80 mil imagens coloridas** retiradas da web através de crawlers e já classificadas em 15 grupos diferentes de categorias de roupa. Os dados deste conjunto são mais semelhantes com a realidade da aplicação final, pois mostram as roupas vestidas em pessoas em lugares naturais, porém contém uma série de ruídos nos dados, como fotos de caixas e fotos com zoom demais.
 
-![acs1](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/acs1.jpg) ![acs2](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/acs2.jpg)
+![acs1](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/acs1.jpg) ![acs2](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/acs2.jpg)
 
 ### [Deep Fashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html)
 
@@ -111,10 +111,10 @@ Para a construção da solução foram avaliados 2 conjuntos de dados, e durante
    Outro ponto a ser destacado em relação ao ACS Dataset, é que apesar de ser um conjunto de dados muito maior, o Deep Fashion ainda se apresentou como um conjunto de dados com menos ruído, com raras ocorrências de fotos que fugiam do domínio ou com representações exdrúxulas.
 
 
-![deep1](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep1.jpg)
-![deep2](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep2.jpg)
-![deep3](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep3.jpg)
-![deep4](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/deep4.jpg)
+![deep1](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/deep1.jpg)
+![deep2](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/deep2.jpg)
+![deep3](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/deep3.jpg)
+![deep4](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/deep4.jpg)
 
 ### Algoritmos e técnicas
 
@@ -122,17 +122,17 @@ Para realizar a classificação das roupas, serão implementadas **redes neurais
 
 **Deep Learning** é uma técnica específica de aprendizado de máquina, ou seja, o programa deve "aprender" a solução por si, pois ela não será programada explicitamente. Para isso, o programa utiliza dados de entrada para realizar seu aprendizado, utilizando eles para _"treinar"_.
 
-![ml](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/ml.png)
+![ml](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/ml.png)
 
 E por fim, dentro das redes neurais temos outros subtipos, sendo os mais conhecidos MLPs e CNNs. Para esta solução, as CNNs são a melhor abordagem para o problema, pois suas camadas convolutivas deixam a rede melhor preparada para lidar com imagens que tem seu objeto de interesse transladado ou rotacionado.
 
-![CNN](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/CNN.jpg)
+![CNN](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/CNN.jpg)
 
 #### Mas porque duas CNNs?
 
 Enquanto um uma das redes criarei um modelo sequencial comum, do zero, na outra CNN será aplicado o conceito de Transfer learning, que consiste de instanciar uma rede neural já treinada(geralmente treinada com dados do ImageNet) e adequá-la para o seu problema, realizando alguns ajustes e um treinamento adicional.
 
-![TL](https://github.com/leandrohmvieira/ML-Capstone-Project/Data/transfer_learning.jpg)
+![TL](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Data/transfer_learning.jpg)
 
 ### Benchmark
 
