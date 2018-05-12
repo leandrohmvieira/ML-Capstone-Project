@@ -4,23 +4,72 @@ Leandro Humberto Vieira
 11 de maio de 2018
 
 ## I. Definição
-_(aprox. 1-2 páginas)_
+A definição deste projeto consiste em construir um método de multiclassificação de roupas, através das técnicas de Deep Learning.
 
 ### Visão geral do projeto
-Nesta seção, procure fornecer uma visão de alto nível do projeto em linguagem simples. Questões para se perguntar ao escrever esta seção:
-- _Foi fornecido um resumo do projeto final, bem como o domínio do problema, a origem do projeto e o conjunto de dados ou entradas?_
-- _Foram dadas informações suficientes sobre o contexto para que um leitor desinformado possa entender o domínio e a enunciação problema?_
+
+A imagem é a primeira impressão que uma pessoa tem ao ver alguém, é algo que nosso cérebro faz automaticamente para armazenar informações e é realizado a partir do momento em que começamos a interagir com esta pessoa. Uma imagem diferente do que uma pessoa é durante uma conversa causa um "ruído" na comunicação e uma confusão no nosso cérebro.
+
+Hoje a imagem é uma via de comunicação pessoal tão importante quanto a fala, dessa forma surgiu a necessidade de profissionais que ensinam a arte da comunicação não-verbal, através de métodos e análises que permitem ensinar uma pessoa a se conhecer e, assim, expressar melhor seu estilo e personalidade através de sua imagem. O processo de [consultoria de imagem](https://en.wikipedia.org/wiki/Image_consulting) ensina a pessoa a identificar seu estilo e sua personalidade, e após este passo, trabalhar com o objetivo de construir uma imagem pessoal mais positiva e coerente com ela mesma.
+A consultoria de imagem trabalha em sua grande parte com roupas, logo há algumas etapas do processo consultivo que visam limpar, organizar e classificar as roupas da cliente.
+
+#### Por que a consultoria de imagem é importante
+
+A imagem, o estilo e as vestimentas são fatores que regem ou influenciam vários aspectos da vida de uma pessoa, o que torna esta informação muito valiosa e digna de vários estudos como os descritos abaixo:
+
+* [Como a roupa afeta sua consciência](http://www.dailymail.co.uk/sciencetech/article-2644076/You-DRESS-Clothing-significant-effect-self-esteem-confidence-claims-expert.html) - [Livro descrito no artigo](https://www.amazon.com/Mind-What-You-Wear-Psychology-ebook/dp/B00KBTB3NS/ref=sr_1_1?ie=UTF8&qid=1454635783&sr=8-1&keywords=Mind+What+You+Wear)
+
+* [Como a roupa impacta no seu sucesso profissional](http://www.businessinsider.com/how-your-clothing-impacts-your-success-2014-8)
+* [A correlação da vestimenta com seu relacionamento afetivo](https://www.meetmindful.com/the-way-you-dress/)
+* [Benefícios da organização das roupas](https://www.janeisatomas.com.br/6-vantagens-de-ter-um-closet-organizado/)
+
+#### Proposta
+
+Este projeto demonstra a tentativa de montar um serviço de classificação de roupas, através da utilização de tecnologia e inteligência artificial para ajudar as pessoas a conhecerem suas roupas, pois saber o que se veste é uma excelente forma de adquirir auto conhecimento. Automatizar a classificação de roupas também seria uma forma de melhorar o trabalho de [consultoria de imagem](https://en.wikipedia.org/wiki/Image_consulting), possibilitando a geração de informações gerenciais de roupas, facilitando o processo de decisão destes profissionais durante a consultoria de um cliente.
+
+[!arquitetura de programa de aprendizado de máquina](colocar aqui imagem de entrada de dados e saída de solução)
+
+Para ensinar as redes neurais a classificarem roupas, foram encontrados na internet alguns conjuntos de imagens que são excelentes candidatos para a solução do problema, os mesmos serão discutidos em detalhes posteriormente.
 
 ### Descrição do problema
+
+O problema a ser resolvido se define em como ter uma visão estratégica do armário de uma mulher. Apenas olhando para o armário, por mais organizado que esteja, não é possível responder perguntas como:
+
+* Quantas blusas pretas eu tenho?
+* Quais são as peças essenciais que faltam no armário?
+* Qual a proporção casual/trabalho que tenho?
+
+Para responder tais perguntas, é necessário classificar as roupas entre vários tipos de vestimenta, como alguns destes exemplos abaixo:
+
+1. Lingeries
+2. Acessórios
+3. Bolsas e sapatos
+4. Blusas
+5. Terceira peça
+6. Calças
+7. Shorts
+8. Saias
+9. Vestidos/Macacões/Macaquinhos
+10. Roupas de Academia
+
+
+
 Nesta seção, você irá definir o problema que você está tentando resolver de forma clara, incluindo a estratégia (resumo das tarefas) que você irá utilizar para alcançar a solução desejada. Você deverá também discutir detalhadamente qual será a solução pretendida para este problema. Questões para se perguntar ao escrever esta seção:
 - _A enunciação do problema foi claramente definida? O leitor irá entender o que você está esperando resolver?_
 - _Você discutiu detalhadamente como irá tentar resolver o problema?_
 - _A solução antecipada está claramente definida? O leitor entenderá quais resultados você está procurando?_
 
 ### Métricas
-Nesta seção, você precisará definir claramente as métricas ou cálculos que você irá usar para avaliar o desempenho de um modelo ou resultado no seu projeto. Esses cálculos e métricas devem ser justificadas baseado nas características do problema e domínio do problema. Questões para se perguntar ao escrever esta seção:
-- _As métricas que você escolheu para medir o desempenho de seus modelos foram discutidas e definidas de forma clara?_
-- _Você forneceu justificativas razoáveis para as métricas escolhidas, baseando-se no problema e solução?_
+
+A métrica de validação a ser utilizada pelo modelo será a [acurácia](https://en.wikipedia.org/wiki/Accuracy_and_precision).
+
+O processo de validação das métricas será dividido nas etapas abaixo:
+
+* Criação de uma [rede neural convolucional](https://pt.wikipedia.org/wiki/Rede_neural_convolucional) completa
+* Adaptação de uma rede neural convolucional já construída, aplicando a técnica de [Transfer Learning](https://en.wikipedia.org/wiki/Transfer_learning)
+* Treinamento e validação dos modelos
+* Comparação da acurácia entre os modelos
+
 
 
 ## II. Análise
@@ -40,6 +89,11 @@ Nesta seção, você precisará fornecer alguma forma de visualização que sint
 - _Se um gráfico foi fornecido, os eixos, títulos e dados foram claramente definidos?_
 
 ### Algoritmos e técnicas
+
+Para realizar a classificação das roupas, serão implementada uma **rede neural**. Redes neurais são conhecidas por atingir o _"estado da arte"_ onde o domínio do problema se referem a imagens, assim ,como primeira opção, foram construídas e treinadas duas **redes neurais convolucionais** para a classificação das imagens.
+
+**Deep Learning** é uma técnica específica de aprendizado de máquina, ou seja, o programa deve "aprender" a solução por si, pois ela não será programada explicitamente. Para isso, o programa utiliza dados de entrada para realizar seu aprendizado, utilizando eles para _"treinar"_.
+
 Nesta seção, você deverá discutir os algoritmos e técnicas que você pretende utilizar para solucionar o problema. Você deverá justificar o uso de cada algoritmo ou técnica baseado nas características do problema e domínio do problema. Questões para se perguntar ao escrever esta seção:
 - _Os algoritmos que serão utilizados, incluindo quaisquer variáveis/parâmetros padrão do projeto, foram claramente definidos?_
 - _As técnicas a serem usadas foram adequadamente discutidas e justificadas?_
@@ -52,7 +106,8 @@ Nesta  seção, você deverá definir claramente um resultado de referência (be
 
 
 ## III. Metodologia
-_(aprox. 3-5 páginas)_
+
+A metodologia aplicada para a solução do problema são redes neurais
 
 ### Pré-processamento de dados
 Nesta seção, você deve documentar claramente todos os passos de pré-processamento que você pretende fazer, caso algum seja necessário. A partir da seção anterior, quaisquer anormalidades ou características que você identificou no conjunto de dados deverão ser adequadamente direcionadas e tratadas aqui. Questões para se perguntar ao escrever esta seção:
@@ -100,17 +155,34 @@ Nesta seção, você deverá fornecer alguma forma de visualização que enfatiz
 - _Se um gráfico foi fornecido, os eixos, títulos e dados foram claramente definidos?_
 
 ### Reflexão
-Nesta seção, você deverá resumir os procedimentos desde o problema até a solução e discutir um ou dois aspectos  do projeto que você achou particularmente interessante ou difícil. É esperado que você reflita sobre o projeto como um todo de forma a mostrar que você possui um entendimento sólido de todo o processo empregado em seu trabalho. Questões para se perguntar ao escrever esta seção:
-- _Você resumiu inteiramente o processo que você utilizou neste projeto?_
-- _Houve algum aspecto interessante do projeto?_
-- _Houve algum aspecto difícil do projeto?_
-- _O modelo e solução final alinham-se com suas expectativas para o problema, e devem ser usadas de forma geral para resolver esses tipos de problemas?_
+
+O projeto como um todo foi uma experiência tanto traumática quanto edificadora para mim.
+
+Mergulhar em um problema fora do meu domínio, codificar em Python, aprender sobre como implementar IA como serviço, cloud computing e gpu computing foram áreas que fugiam totalmente de meus conhecimentos prévios, o que me agregou muito conhecimento.
+
+Como um resumo geral de minha jornada na entrega deste projeto, posso afirmar que houveram vários altos e baixos, como também vários imprevistos que impactaram de forma negativa no projeto. A jornada do projeto se resume nos parágrafos abaixo, onde em cada parágrafo aprendi uma lição sobre todo este processo:
+
+Iniciei o projeto utilizando o conjunto de dados escolhidos na proposta de conclusão de projeto que já havia sido aprovada, e percebi que os dados se encontravam muito sujos, com várias imagens de objetos que nada tinham a ver com o problema proposto, além de haver poucas amostras (80 mil ao todo). Para contornar este problema, encontrei outro conjunto de dados, com mais imagens e categorias para classificar. _Aprendi que soluções que demandam dados para ser construídas precisam de **dados de qualidade**_.
+
+Iniciei o desenvolvimento localmente, executando os códigos em minha máquina, logo percebi que os programas estavam demorando absurdamente para mostrar resultados, como uma solução paliativa, migrei o código para o Google Colab, resultando em alguns ajustes no código. Após alguns dias desenvolvendo no Colab, tive novas dificuldades, e novamente tive que migrar meu código para outra plataforma, o [Paperspace](https://www.paperspace.com/). _Aprendi com essas adversidades que o Deep Learning é um método de aprendizado que exige um altíssimo poder computacional, com resultados muito demorados_.
+
+Tive muitas dificuldades em lidar com o Tensorflow, ele apresentou erros diferentes para cada um dos ambientes em que testei meus programas, o que atrasou muito a entrega dos artefatos do projeto. _Aprendi que tenho que migrar para o Pytorch, RÁPIDO_.
+
+A solução desenvolvida ainda está longe do esperado para uma aplicação de produção, mas tenho certeza que foi um passo na direção certa, após as melhorias a ser propostas, tenho certeza que será possível alcançar resultados satisfatórios.
 
 ### Melhorias
-Nesta seção, você deverá discutir como um aspecto da sua implementação poderia ser melhorado. Por exemplo, considere maneiras de tornar a sua implementação mais geral e o que precisaria ser modificado. Você não precisa fazer a melhoria, mas as possíveis soluções que resultariam de tais mudanças devem ser consideradas e comparadas/contrastadas com a sua solução atual. Questões para se perguntar ao escrever esta seção:
-- _Existem melhorias futuras que podem ser feitas nos algoritmos ou técnicas que você usou neste projeto?_
-- _Existem algoritmos ou técnicas que você pesquisou, porém não soube como implementá-las, mas consideraria usar se você soubesse como?_
-- _Se você usou sua solução final como nova referência, você acredita existir uma solução ainda melhor?_
+
+Como melhorias a este projeto, considero que há a necessidade de estudar técnicas mais avançadas de treinamento de redes neurais, que no momento não podem ser implementadas com o meu conhecimento neste campo de estudo. Estou começando a assistir algumas aulas do curso do [fast.ai](http://www.fast.ai/), e percebi que existem técnicas avançadas para se obter melhores resultados de classificação em redes neurais.
+
+Outro ponto a ser melhorado no projeto consiste na utilização do serviço de uma forma mais completa. Devido ao prazo do projeto chegar ao fim, realizei a entrega do serviço em uma aplicação web simples, o que não agrega o valor necessário para o usuário devido a fatores simples como: entrega de pouca informação(tipo da roupa apenas), falta de persistência da informação recebida e disponibilização de dados analíticos. Como proposta de melhoria para o projeto, seria ideal realizar as seguintes modificações:
+
+* Incrementar as informações geradas pelo serviço, como cor dominante, corte da roupa, tipo de tecido e estilo da roupa(o conjunto de dados de entrada já tem essas informações marcadas nas fotos, seria necessário apenas o treinamento de novos modelos)
+
+* Entregar o serviço em uma plataforma embarcada, para assim fornecer na plataforma os serviços faltantes como persistência e relatórios gerenciais. Era planejado entregar o serviço em um app mobile, mas devido a aproximação do final do prazo e minha falta de experiência em desenvolvimento, tive que abandonar a idéia e entregar na web, mas a aplicação funciona em partes e se encontra em: https://github.com/leandrohmvieira/SmartDrobe
+
+* Um ponto que seria de grande melhora, seria o enquadramento do objeto antes da classificação. Encontrei algumas fontes na internet como o [Detectron](https://github.com/facebookresearch/Detectron) e o [YOLO](https://github.com/zhreshold/mxnet-yolo) que conseguem detectar objetos em uma imagem com várias coisas, isso permitiria cortar a foto antes da classificação, assim teríamos menos ruído durante a classificação das roupas.
+
+* E por fim, seria uma melhora a multiclassificação de uma imagem, onde fosse possível classificar várias roupas simultâneamente, dado uma foto. Realizei algumas pesquisas na internet e vi que isso é possível, porém o material dado pelo curso não abrange este tópico.
 
 -----------
 
