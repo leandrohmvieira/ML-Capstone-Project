@@ -1,1 +1,5 @@
-models/
+source/uploads/*.jpg
+source/uploads/*.png
+*.h5
+*.p
+boilerplate*
