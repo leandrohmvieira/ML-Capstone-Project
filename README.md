@@ -69,25 +69,25 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 ```
 Caso a instância não tenha GPU, este passo não é necessário, porém o arquivo [requirements.txt](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Source/requirements.txt) deve ser alterado para o tensorflow comum.
 
-## 2.3 Dependências
+### 2.3 Dependências
 
 A solução desenvolvida usa uma série de pacotes Python, para realizar a instalação das bibliotecas navegue até a pasta `Source` e execute o comando:
 
 `pip install -r requirements.txt`
 
-## 2.4 Modelo de rede neural
+### 2.4 Modelo de rede neural
 
 Para o servidor web funcionar, é necessário que o modelo de rede neural seja baixado também, como ele é muito grande, o mesmo está hospedado em minha conta no google drive. Para baixá-lo, navegue para a pasta `/Source/models` e execute o comando:
 
  `python download_model.py 1YD2SH2xT0D4dMtI5kcnDWdT791x9YKbU basicCNN.h5`
 
-## 2.5 Porta web
+### 2.5 Porta web
 
 A instância tem suas portas fechadas para acessos externos por padrão, como iremos executar o servidor flask na porta 5000, devemos abrir esta porta no sistema operacional para receber acessos externos. Para realizar esta operação, execute o comando:
 
 `sudo ufw allow 5000`
 
-# 3. Execução
+## 3. Execução
 
  Após todos os passos configurados, basta executar o servidor Python. Para isso navegue até a pasta `Source` e execute o comando:
 
@@ -95,7 +95,7 @@ A instância tem suas portas fechadas para acessos externos por padrão, como ir
 
  Se tudo ocorreu normalmente, em alguns segundos será possível acessar a aplicação pela internet através do endereço `<ippublicodainstancia>:5000`
 
-# 4. Referências
+## 4. Referências
 
 [Tutorial Keras rest api](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
 

@@ -1,6 +1,7 @@
 # Nanodegree Engenheiro de Machine Learning
 ## Projeto final
 Leandro Humberto Vieira
+
 11 de maio de 2018
 
 ## I. Definição
@@ -170,7 +171,7 @@ Trainable params: 29,891,810
 Non-trainable params: 0
 _________________________________________________________________
 ```
-Todos os detalhes da implementação do modelo de benchmark estão localizados [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Basic-CNN.ipynb)
+Todos os detalhes da implementação do modelo de benchmark estão localizados [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Notebooks/Basic-CNN.ipynb)
 
 ## III. Metodologia
 
@@ -205,7 +206,7 @@ train_generator = train_datagen.flow_from_directory(
 
 ### Implementação
 
-Para a implementação das redes foram realizadas duas construções, feitas em Keras. Uma rede neural simples de 13 camadas(detalhes [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Basic-CNN.ipynb)) e uma rede de transfer learning, baseado na VGG19(detalhes [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/VGG19.ipynb)).
+Para a implementação das redes foram realizadas duas construções, feitas em Keras. Uma rede neural simples de 13 camadas(detalhes [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Notebooks/Basic-CNN.ipynb)) e uma rede de transfer learning, baseado na VGG19(detalhes [aqui](https://github.com/leandrohmvieira/ML-Capstone-Project/blob/master/Notebooks/VGG19.ipynb)).
 
 Estas implementações foram escolhidas pelos seguintes motivos:
 
@@ -315,3 +316,11 @@ Outro ponto a ser melhorado no projeto consiste na utilização do serviço de u
 * Um ponto que seria de grande melhora, seria o enquadramento do objeto antes da classificação. Encontrei algumas fontes na internet como o [Detectron](https://github.com/facebookresearch/Detectron) e o [YOLO](https://github.com/zhreshold/mxnet-yolo) que conseguem detectar objetos em uma imagem com várias coisas, isso permitiria cortar a foto antes da classificação, assim teríamos menos ruído durante a classificação das roupas.
 
 * E por fim, seria uma melhora a multiclassificação de uma imagem, onde fosse possível classificar várias roupas simultâneamente, dado uma foto. Realizei algumas pesquisas na internet e vi que isso é possível, porém o material dado pelo curso não abrange este tópico.
+
+### Agradecimentos
+
+Gostaria de agradecer a todos da Udacity pelas aulas de alta qualidade, e da gentileza de ter disponibilizado um módulo extra de aulas de Deep Learning no NanoDegree, sem as aulas, não teria o interesse de buscar este tópico para a execução do projeto final.
+
+Também gostaria de agradecer ao pessoal do grupo de estudo **Deep Learning Brasília**, que com as aulas extras deles, tive a bagagem adicional de conhecimento e a motivação para continuar engajado nas atividades do curso, além das várias dicas valiosas sobre como desenvolver a aplicação web e como utilizar várias funções do Keras.
+
+E por fim, agradeço a minha esposa, [Karina Tânia](https://www.instagram.com/karinataniaconsultoria/), por me apoiar com seu conhecimento sobre o objeto de estudo, e por me cobrir de vez enquando nas tarefas domésticas que se atrasaram um pouco nestes 6 meses de jornada de aprendizado de máquina.
