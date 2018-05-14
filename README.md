@@ -105,3 +105,5 @@ A instância tem suas portas fechadas para acessos externos por padrão, como ir
 [Repositório Siraj - how to deploy a keras model to production](https://github.com/llSourcell/how_to_deploy_a_keras_model_to_production)
 
 [Front-end Deep Learning Rest API](https://github.com/mtobeiyf/keras-flask-deploy-webapp)
+
+[Installing CUDA on ubuntu1604](https://yangcha.github.io/CUDA90/)
