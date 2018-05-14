@@ -106,4 +106,4 @@ A instância tem suas portas fechadas para acessos externos por padrão, como ir
 
 [Front-end Deep Learning Rest API](https://github.com/mtobeiyf/keras-flask-deploy-webapp)
 
-[Installing CUDA on ubuntu1604](https://yangcha.github.io/CUDA90/)
+[Installing CUDA 9.0 on Ubuntu 16.04](https://yangcha.github.io/CUDA90/)
